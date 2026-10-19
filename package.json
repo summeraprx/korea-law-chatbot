@@ -1,0 +1,19 @@
+{
+  "name": "korea-law-helper",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multilingual AI chatbot that explains Korean law to foreigners, answering only from the official law.go.kr database.",
+  "type": "module",
+  "main": "server/index.js",
+  "engines": { "node": ">=18.18" },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

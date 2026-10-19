@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Korea Law Helper</title>
+  <meta name="description" content="Understand Korean law in your own language. Answers come only from the official Korean law database (law.go.kr) and are double-checked before you see them.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23B4232A' stroke-width='3'/%3E%3Ctext x='16' y='21.5' font-size='14' text-anchor='middle' fill='%23B4232A' font-family='serif' font-weight='700'%3E法%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#composer-input">Skip to question box</a>
+  <header class="top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">法</span>
+      <div>
+        <strong class="brand-name">Korea Law Helper</strong>
+        <span class="brand-ko" lang="ko">외국인 법률 길잡이</span>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="btn-quiet emergency-toggle" id="emergency-toggle" aria-controls="rail" aria-expanded="false">
+        <span class="dot" aria-hidden="true"></span><span data-i18n="emergency">Emergency and help lines</span>
+      </button>
+      <label class="lang">
+        <span class="sr" data-i18n="language">Language</span>
+        <select id="lang-select" aria-label="Language"></select>
+      </label>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="rail" id="rail">
+      <section class="now">
+        <p data-i18n="emergencyNow">In danger right now? Call 112 (police) or 119 (ambulance/fire).</p>
+        <div class="now-calls">
+          <a href="tel:112" class="call call-red"><b>112</b><span>Police · 경찰</span></a>
+          <a href="tel:119" class="call call-red"><b>119</b><span>Ambulance · 119</span></a>
+        </div>
+      </section>
+      <section>
+        <h2 class="rail-h" data-i18n="emergency">Emergency and help lines</h2>
+        <ul class="lines">
+          <li><a href="tel:1345"><b>1345</b><span>Immigration Contact Center — multilingual<br><span lang="ko">외국인종합안내센터</span></span></a></li>
+          <li><a href="tel:132"><b>132</b><span>Korea Legal Aid Corporation — free legal aid, eligibility applies<br><span lang="ko">대한법률구조공단</span></span></a></li>
+          <li><a href="tel:1366"><b>1366</b><span>Women's Emergency Hotline — violence, stalking<br><span lang="ko">여성긴급전화</span></span></a></li>
+          <li><a href="tel:15771366"><b>1577-1366</b><span>Danuri — multicultural families<br><span lang="ko">다누리콜센터</span></span></a></li>
+          <li><a href="tel:1350"><b>1350</b><span>Ministry of Employment and Labor — wages, work<br><span lang="ko">고용노동부</span></span></a></li>
+          <li><a href="tel:1330"><b>1330</b><span>Korea Travel Hotline — tourists<br><span lang="ko">관광통역안내</span></span></a></li>
+        </ul>
+      </section>
+      <p class="rail-note" data-i18n="privacy">Your conversation is not saved. Closing this page erases it.</p>
+    </aside>
+
+    <main class="main">
+      <div class="thread" id="thread" aria-live="polite">
+        <section class="hero" id="hero">
+          <h1 data-i18n="heroTitle">Tell me what happened.</h1>
+          <p data-i18n="heroBody">I look up the official Korean law database, explain what applies to you, and help you prepare before you go to the police, immigration or a lawyer.</p>
+          <h2 class="chips-h" data-i18n="tryOne">Or start from a common situation</h2>
+          <div class="chips" id="chips"></div>
+        </section>
+      </div>
+
+      <form class="composer" id="composer">
+        <div class="composer-box">
+          <label for="composer-input" class="sr" data-i18n="placeholder">Describe your situation</label>
+          <textarea id="composer-input" rows="2" maxlength="6000" placeholder="Describe your situation in any language…"></textarea>
+          <button type="submit" class="btn-send" id="send-btn" data-i18n="send">Ask</button>
+        </div>
+        <div class="composer-row">
+          <button type="button" class="btn-quiet" id="summary-btn" hidden data-i18n="summary">Make my case sheet</button>
+          <button type="button" class="btn-quiet" id="new-btn" hidden data-i18n="newChat">New conversation</button>
+          <p class="disclaimer" data-i18n="disclaimer">Legal information from the official law database, not legal advice. For your specific case, confirm with a lawyer.</p>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="vendor/marked.min.js"></script>
+  <script src="vendor/purify.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
